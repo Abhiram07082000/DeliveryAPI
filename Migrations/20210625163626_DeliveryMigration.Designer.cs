@@ -9,9 +9,9 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DeliveryAPI.Migrations
 {
-    [DbContext(typeof(UserContext))]
-    [Migration("20210620090112_DeliveryBookingMigration")]
-    partial class DeliveryBookingMigration
+    [DbContext(typeof(DeliveryBookingContext))]
+    [Migration("20210625163626_DeliveryMigration")]
+    partial class DeliveryMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -49,66 +49,15 @@ namespace DeliveryAPI.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<float>("Weight")
                         .HasColumnType("real");
 
                     b.HasKey("BookingId");
 
-                    b.HasIndex("UserId");
-
                     b.ToTable("DeliveryBooking");
-                });
-
-            modelBuilder.Entity("DeliveryAPI.Model.User", b =>
-                {
-                    b.Property<int>("UserId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Age")
-                        .HasColumnType("int");
-
-                    b.Property<string>("City")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Phone")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("UserId");
-
-                    b.ToTable("User");
-                });
-
-            modelBuilder.Entity("DeliveryAPI.Model.DeliveryBooking", b =>
-                {
-                    b.HasOne("DeliveryAPI.Model.User", "UserName")
-                        .WithMany("Bookings")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("UserName");
-                });
-
-            modelBuilder.Entity("DeliveryAPI.Model.User", b =>
-                {
-                    b.Navigation("Bookings");
                 });
 #pragma warning restore 612, 618
         }

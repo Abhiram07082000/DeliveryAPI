@@ -26,13 +26,13 @@ namespace DeliveryAPI.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //Fluent APIs
-            modelBuilder.Entity<User>().HasKey(s => s.UserId);
-            modelBuilder.Entity<DeliveryBooking>().HasKey(b => b.BookingId);
-            modelBuilder.Entity<DeliveryBooking>().Property(b => b.BookingId).ValueGeneratedOnAdd();
-            modelBuilder.Entity<DeliveryBooking>()
-                .HasOne<User>(s => s.UserName)
-                .WithMany(ad => ad.Bookings)
-                .HasForeignKey(ad => ad.UserId);
+            //modelBuilder.Entity<User>().HasKey(s => s.UserId);
+            //modelBuilder.Entity<DeliveryBooking>().HasKey(b => b.BookingId);
+            //modelBuilder.Entity<DeliveryBooking>().Property(b => b.BookingId).ValueGeneratedOnAdd();
+            //modelBuilder.Entity<DeliveryBooking>()
+            //    .HasOne<User>(s => s.UserName)
+            //    .WithMany(ad => ad.Bookings)
+            //    .HasForeignKey(ad => ad.UserId);
         }
 
         public DbSet<DeliveryAPI.Model.DeliveryBooking> DeliveryBooking { get; set; }
