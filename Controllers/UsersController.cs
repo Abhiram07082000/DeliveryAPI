@@ -23,17 +23,36 @@ namespace DeliveryAPI.Controllers
         }
 
         // GET: api/Users
-        [HttpGet]
-        public ActionResult<List<User>> GetUser()
+        [HttpGet]                                                                                               //API Code
+
+        //public ActionResult<List<User>> GetUser()
+        //{
+        //    return _prod.GetUsers();
+        //}
+
+                                                                                                                //TestCode
+        public IActionResult GetUser()
         {
-            return _prod.GetUsers();
+            return Ok(_prod.GetUsers());
         }
 
         // GET: api/Users/5
-        [HttpGet("{id}")]
-        public ActionResult<User> GetUser(int id)
+        [HttpGet("{id}")]                                                                                        //APICode
+        //public ActionResult<User> GetUser(int id)
+        //{
+        //    var user = _prod.GetUserById(id);
+
+        //    if (user == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return user;
+        //}
+
+        public ActionResult GetUser(int id)                                                                        //TestCode
         {
-            var user = _prod.GetUserById(id);
+            var user = Ok(_prod.GetUserById(id));
 
             if (user == null)
             {
@@ -44,9 +63,9 @@ namespace DeliveryAPI.Controllers
         }
 
         // PUT: api/Users/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754                                             
         [HttpPut("{id}")]
-        public ActionResult PutUser(int id, User P)
+        public ActionResult PutUser(int id, User P)                                                 
         {
             try
             {
@@ -66,13 +85,24 @@ namespace DeliveryAPI.Controllers
             return NoContent();
         }
 
+
+
         // POST: api/Users
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public ActionResult<User> PostUser(User P)
+
+
+        [HttpPost]                                                                            //API Code
+        //public ActionResult<User> PostUser(User P)
+        //{
+        //    _prod.AddNewUser(P);
+        //    return CreatedAtAction("GetUser", new { id = P.UserId }, P);
+        //}
+
+        //TestCode
+        public ActionResult PostUser(User P)
         {
             _prod.AddNewUser(P);
-           return CreatedAtAction("GetUser", new { id = P.UserId }, P);
+            return CreatedAtAction("GetUser", new { id = P.UserId }, P);
         }
 
         // DELETE: api/Users/5

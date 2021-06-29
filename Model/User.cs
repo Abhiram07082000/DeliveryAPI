@@ -35,22 +35,22 @@ namespace DeliveryAPI.Model
         public string UserType { get; set; }
         [NotMapped]
         public virtual List<DeliveryBooking> Bookings { get; set; }
-        //public User()
-        //{
+        public User()
+        {
 
-        //}
+        }
 
-        //public User(int userid, string name, string username, string password, int age, string phone, string address, string city, string usertype)
-        //{
-        //    UserId = userid;
-        //    Name = name;
-        //    UserName = username;
-        //    Password = password;
-        //    Age = age;
-        //    Phone = phone;
-        //    Address = address;
-        //    City = city;
-        //    UserType = usertype;
-        //}
+        public User(int userid, string name, string username, string password, int age, string phone, string address, string city, string usertype)
+        {
+            UserId = userid;
+            Name = name;
+            UserName = username;
+            Password = password;
+            Age = age;
+            Phone = phone;
+            Address = address;
+            City = city;
+            UserType = usertype;
+        }
     }
 }

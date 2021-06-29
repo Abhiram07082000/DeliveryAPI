@@ -22,7 +22,7 @@ namespace DeliveryAPI.Controllers
             _prod = Prod;
         }
 
-
+                                                                                                                                //API Code
         // GET: api/DeliveryBookings
         [HttpGet]
         public ActionResult<List<DeliveryBooking>> GetDeliveryBooking()
@@ -30,12 +30,26 @@ namespace DeliveryAPI.Controllers
             return _prod.GetAllBookings();
         }
 
-        // GET: api/DeliveryBookings/5
+        //TestCode
+        //public IActionResult GetDeliveryBooking()                                                       
+        //{
+        //    return Ok(_prod.GetAllBookings());
+        //}
+
+
+        // GET: api/DeliveryBookings/5                                                                                          //API Code
         [HttpGet("{id}")]
         public ActionResult<DeliveryBooking> GetDeliveryBooking(int id)
         {
             return _prod.GetByBookingId(id);
         }
+
+        //Test Code
+
+        //public ActionResult GetDeliveryBooking(int id)  
+        //{
+        //    return Ok(_prod.GetByBookingId(id));
+        //}
 
         // PUT: api/DeliveryBookings/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
@@ -62,14 +76,25 @@ namespace DeliveryAPI.Controllers
         }
        
         // POST: api/DeliveryBookings
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754                             //API Code
         [HttpPost]
-        public ActionResult <DeliveryBooking> PostDeliveryBooking(DeliveryBooking P)
+        public ActionResult<DeliveryBooking> PostDeliveryBooking(DeliveryBooking P)
         {
             _prod.AddNewBooking(P);
 
             return CreatedAtAction("GetDeliveryBooking", new { id = P.BookingId }, P);
         }
+
+        //Test Code
+
+        //public ActionResult PostDeliveryBooking(DeliveryBooking P)                                                              
+        //{
+        //    _prod.AddNewBooking(P);
+
+        //    return CreatedAtAction("GetDeliveryBooking", new { id = P.BookingId }, P);
+        //}
+
+
         // DELETE: api/DeliveryBookings/5
         [HttpDelete("{id}")]
         public ActionResult DeleteDeliveryBooking(int id)

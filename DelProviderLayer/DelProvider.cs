@@ -39,10 +39,7 @@ namespace DeliveryAPI.DelProviderLayer
             return _repo.GetByBookingId(id);
         }
 
-        //public DeliveryBooking GetBookingByUserId(int UserId)
-        //{
-        //    return _repo.GetBookingByUserId(UserId);
-        //}
+       
         public DeliveryBooking UpdateBooking(int id, DeliveryBooking P)
         {
             _repo.UpdateBooking(id, P);

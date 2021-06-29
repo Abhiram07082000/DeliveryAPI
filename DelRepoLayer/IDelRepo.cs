@@ -10,7 +10,6 @@ namespace DeliveryAPI.DelRepoLayer
     {
         public List<DeliveryBooking> GetAllBookings();
         public DeliveryBooking GetByBookingId(int id);
-        //public DeliveryBooking GetBookingByUserId(int UserId);
         public DeliveryBooking AddNewBooking(DeliveryBooking P);
         public void DeleteBooking(int id);
         public DeliveryBooking UpdateBooking(int id, DeliveryBooking P);

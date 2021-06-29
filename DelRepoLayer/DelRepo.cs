@@ -28,9 +28,11 @@ namespace DeliveryAPI.DelRepoLayer
 
         public void DeleteBooking(int id)
         {
-            DeliveryBooking P = _context.DeliveryBooking.Find(id);
-            _context.DeliveryBooking.Remove(P);
-            _context.SaveChanges();
+             DeliveryBooking P = _context.DeliveryBooking.Find(id);
+                _context.DeliveryBooking.Remove(P);
+                _context.SaveChanges();
+            
+           
         }
 
         public List<DeliveryBooking> GetAllBookings()
