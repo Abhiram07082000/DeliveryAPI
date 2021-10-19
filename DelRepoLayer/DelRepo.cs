@@ -44,6 +44,7 @@ namespace DeliveryAPI.DelRepoLayer
         {
            return(_context.DeliveryBooking.Find(id));
         }
+        
         //public DeliveryBooking GetBookingByUserId(int UsrId)
         //{
         //        var GetByIdQuery = _context.Query;
